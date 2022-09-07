@@ -1,4 +1,40 @@
-* {
+/* * {
   padding: 0;
   margin: 0;
 }
+.all-in {
+  background-color: #91a7ff;
+  height: 632px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  cursor: pointer;
+  font-size: 16px;
+  font-family: roboto, sans-serif;
+  padding: 15px;
+  background-color: #1864ab;
+  color: #fff;
+  border: solid 1px #91a7ff;
+  border-radius: 15px;
+}
+.clear-div {
+  display: flex;
+  justify-content: center;
+}
+.clear {
+  background-color: red;
+}
+.conainer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px;
+} */
