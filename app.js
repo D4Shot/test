@@ -1,17 +1,30 @@
 "use strict";
+//selecting  elements
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+const clear = document.querySelector(".clear");
+
+rock.addEventListener("click", () => {
+  console.log("rock");
+});
+paper.addEventListener("click", () => {
+  console.log("paper");
+});
+scissors.addEventListener("click", () => {
+  console.log("scissors");
+});
+//player selection
+let choise;
+function playerFunc() {}
+
 //computer choise
 const getComputerChoise = () => {
   let choiseArry = ["rock", "paper", "scissors"];
   const randChoise = choiseArry[Math.floor(Math.random() * choiseArry.length)];
   return randChoise;
 };
-// player choise input
-const playerFunc = () => {
-  const playerSelection = prompt(
-    "Enter: rock , paper , scissors  plaing 5 Rounds: "
-  ).toLocaleLowerCase();
-  return playerSelection;
-};
+
 // checking winner
 const winnerFunc = (playerSelection, computerSelection) => {
   if (playerSelection === computerSelection) {
