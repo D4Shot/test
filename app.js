@@ -1,22 +1,9 @@
 "use strict";
 //selecting  elements
-const rock = document.querySelector(".rock");
-const paper = document.querySelector(".paper");
-const scissors = document.querySelector(".scissors");
-const clear = document.querySelector(".clear");
-
-rock.addEventListener("click", () => {
-  console.log("rock");
-});
-paper.addEventListener("click", () => {
-  console.log("paper");
-});
-scissors.addEventListener("click", () => {
-  console.log("scissors");
-});
-//player selection
-let choise;
-function playerFunc() {}
+let rock = document.querySelector(".rock");
+let paper = document.querySelector(".paper");
+let scissors = document.querySelector(".scissors");
+let clear = document.querySelector(".clear");
 
 //computer choise
 const getComputerChoise = () => {
@@ -24,51 +11,58 @@ const getComputerChoise = () => {
   const randChoise = choiseArry[Math.floor(Math.random() * choiseArry.length)];
   return randChoise;
 };
+const computerChoise = String(getComputerChoise());
+
+// console.log(typeof computerChoise, computerChoise);
+//listeners
+clear.addEventListener("click", () => {
+  location.reload();
+});
+rock.addEventListener("click", () => {
+  rock = player("rock");
+  console.log(winnerFunc(rock, computerChoise));
+});
+paper.addEventListener("click", () => {
+  paper = player("paper");
+  console.log(winnerFunc(paper, computerChoise));
+});
+scissors.addEventListener("click", () => {
+  scissors = player("scissors");
+  console.log(winnerFunc(scissors, computerChoise));
+});
+
+//player selection
+const player = (value) => {
+  if (value === "rock") {
+    return "rock";
+  } else if (value === "paper") {
+    return "paper";
+  } else if (value === "scissors") {
+    return "scissors";
+  }
+};
 
 // checking winner
-const winnerFunc = (playerSelection, computerSelection) => {
-  if (playerSelection === computerSelection) {
-    return "draw";
-  }
-  if (playerSelection === "rock" && computerSelection === "scissors") {
-    return "player";
-  }
-  if (playerSelection === "paper" && computerSelection === "rock") {
-    return "player ";
-  }
-  if (playerSelection === "scissors" && computerSelection === "paper") {
-    return "player ";
-  }
-  if (playerSelection === "scissors" && computerSelection === "rock") {
-    return "computer";
-  }
-  if (playerSelection === "rock" && computerSelection === "paper") {
-    return "computer";
-  }
-  if (playerSelection === "paper" && computerSelection === "scissors") {
-    return "computer";
-  }
-};
-// playing round
-const playRound = (playerSelection, computerSelection) => {
-  const result = winnerFunc(playerSelection, computerSelection);
-  if (result == "draw") {
-    return "its a draw";
-  } else if (result == "player") {
-    return "you win";
+const winnerFunc = (player, computer) => {
+  if (player === computer) {
+    return "Draw";
+  } else if (player === "rock" && computer === "scissors") {
+    return "player wins rock";
+  } else if (player === "paper" && computer === "rock") {
+    return "player wins paper";
+  } else if (player === "scissors" && computer === "paper") {
+    return "player wins scissors";
   } else {
-    return "you lose";
+    return `computer wins `;
   }
-};
 
-//the game  loop logic
-const game = () => {
-  console.log("Wellcome to game ");
-  for (let i = 0; i < 5; i++) {
-    const playerSelection = playerFunc();
-    const computerSelection = getComputerChoise();
-    console.log(playRound(playerSelection, computerSelection));
-  }
+  // if (player === "rock" && computer === "scissors") {
+  //   return "player wins with rock";
+  // } else if (player === "paper" && computer === "rock") {
+  //   return "player wins with paper";
+  // } else if (player === "scissors" && computer === "paper") {
+  //   return "player wins with paper";
+  // } else {
+  //   return "computer won ";
+  // }
 };
-
-game();
